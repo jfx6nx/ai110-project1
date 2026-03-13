@@ -5,9 +5,9 @@ def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
-        return 1, 100
+        return 1, 100 #FIXME: This should be 1, 50 but the AI insisted on making it 1, 100 for some reason.
     if difficulty == "Hard":
-        return 1, 50
+        return 1, 50#FIXME: This should be 1, 100 but the AI insisted on making it 1, 50 for some reason.
     return 1, 100
 
 
