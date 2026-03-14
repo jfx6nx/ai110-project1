@@ -5,9 +5,9 @@ def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
-        return 1, 100 #FIXME: This should be 1, 50 but the AI insisted on making it 1, 100 for some reason.
+        return 1, 50 # FIXED: proper difficulty assigned to Normal
     if difficulty == "Hard":
-        return 1, 50#FIXME: This should be 1, 100 but the AI insisted on making it 1, 50 for some reason.
+        return 1, 100 # FIXED: proper difficulty assigned to hard
     return 1, 100
 
 
@@ -35,9 +35,9 @@ def check_guess(guess, secret):
 
     try:
         if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
+            return "Too High", "📉 Go LOWER!" #Fixed: Correct hints now provided
         else:
-            return "Too Low", "📉 Go LOWER!"
+            return "Too Low", "📈 Go HIGHER!" #Fixed: Correct hints now provided
     except TypeError:
         g = str(guess)
         if g == secret:
@@ -53,13 +53,9 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
         if points < 10:
             points = 10
         return current_score + points
-
-    if outcome == "Too High":
-        if attempt_number % 2 == 0:
-            return current_score + 5
-        return current_score - 5
-
-    if outcome == "Too Low":
+    #FIXED: Github rewritten code to make it so point deduction is consistent regardless of whether the guess was too high or too low.
+    # Penalize incorrect guesses consistently regardless of being too high or too low.
+    if outcome in ("Too High", "Too Low"):
         return current_score - 5
 
     return current_score
@@ -77,9 +73,10 @@ difficulty = st.sidebar.selectbox(
     index=1,
 )
 
+#FIXED: Changed the attempt limits to be more consistent with the difficulty levels, and to make the game more balanced. Easy has more attempts, Hard has fewer attempts, and Normal is in between.
 attempt_limit_map = {
-    "Easy": 6,
-    "Normal": 8,
+    "Easy": 8,
+    "Normal": 6,
     "Hard": 5,
 }
 attempt_limit = attempt_limit_map[difficulty]
@@ -134,6 +131,7 @@ with col3:
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(1, 100)
+    st.session_state.status = "playing"
     st.success("New game started.")
     st.rerun()
 
