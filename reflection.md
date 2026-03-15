@@ -34,6 +34,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Did AI help you design or understand any tests? How?
 
 1) For the actual game mechanics, bugs "being fixed" was clear due to there only being but only 3 distinct outcomes for a given guess (higher, lower, or correct). Then, simply checking to make sure the correct message got printed (which I built into the test cases using copilot) was the second (but still easy) layer of verification
+2) Manually, I would test different combinations of inputs (e.g., a low, low, high, low) and then do so at various attempts in the game. Although covering all cases this way would grow exponentially, the few, random cases I did do ended up revealing issues with the state behavior of the hints
+3) AI made all of the tests. I asked for "tests that cover every unique combination of secret, being higher or lower, and game mode" and it provided the tests now shown in the test_game_logic.py file
 ---
 
 ## 4. What did you learn about Streamlit and state?
