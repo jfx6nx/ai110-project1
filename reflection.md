@@ -39,12 +39,17 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit is useful because it allows a simple python script to be used as an interactive web app. It does this, however, byt rerunning the entire script each time the page is interacted with; this causes issues with possibly re-initializing variables with each click. The concept of session state solves this issue by essentially telling streamlit what variables (and their associated values) ought to persist. It also seems useful in creating different use cases/regimes (e.g., making easy, normal, and ahrd modes with differing settings for each)
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
-  - This could be a testing habit, a prompting strategy, or a way you used Git.
-- What is one thing you would do differently next time you work with AI on a coding task?
-- In one or two sentences, describe how this project changed the way you think about AI generated code.
+  - This could be a testing habit, a prompting strategy, or a way you used Git. (1)
+- What is one thing you would do differently next time you work with AI on a coding task? (2)
+- In one or two sentences, describe how this project changed the way you think about AI generated code. (3)
+
+(1) Through this project, I was introduced to intergating Github Copilot into VSCode. I had previously used tools like Claude or ChatGPT via copying and pasting code, but the ability to use things like inline chats and agent/ask/plan modes was new and exciting
+(2) Now knowing both the strength of the github copilot AI--as well as some of its limitations--I will more effectively use the tools to first ensure I have a deep understanding of what the code is seeking to do. Lacking this knowledge at some points in this project, I ended up being somewhat blindly led by the AI.
+(3) Coding with AI is truly about knowing what you want, and to a certain extent, how it needs to look. Anyone can prompt for a bunch of code; someone good at it, however, will know what particular specifications (and in what ways to share them) that will provide the best possible code.
