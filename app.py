@@ -45,8 +45,8 @@ if "history" not in st.session_state:
 
 st.subheader("Make a guess")
 
-st.info(
-    f"Guess a number between 1 and 100. "
+st.info( #FIXED: Updated the info message to reflect the correct range and attempt limits based on the selected difficulty level.
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
@@ -72,7 +72,7 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing" # FIXED: Reset game status to "playing" when starting a new game.
     st.success("New game started.")
     st.rerun()

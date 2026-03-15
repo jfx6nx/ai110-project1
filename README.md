@@ -25,9 +25,9 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [ ] Describe the game's purpose: The game is guessing game where users can choose between  easy, normal, amd hard difficulty modes, each of which possessing increasingly challenging ranges to guess from as well as decreasing guess attempts.
+- [ ] Detail which bugs you found: Bugs I found included (1) hints were inverted (i.e., printed too high when too low and vice versa). (2) number of attempts per difficulty were misassigned. (3) Some subheader text(s) didn't update the information displayed when selecting a specific mode. (4) The game's "status tracking" functionality worked incorrectly
+- [ ] Explain what fixes you applied: (1) Simply changed some print statements. (2) Changed the numbers within the attempt_limit_map. (3) Used f-strings instead of just print statements. (4) Updated the following "st.session_state.status = 'playing'"
 
 ## 📸 Demo
 
