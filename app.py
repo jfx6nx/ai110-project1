@@ -45,7 +45,7 @@ if "history" not in st.session_state:
 
 if "difficulty" not in st.session_state:
     st.session_state.difficulty = difficulty
-
+#FIXED: Added a check to reset the game state when the difficulty is changed. This ensures that the secret number, attempts, status, and history are all reset when the user selects a different difficulty level.
 if st.session_state.difficulty != difficulty:
     st.session_state.difficulty = difficulty
     st.session_state.secret = random.randint(low, high)
@@ -105,12 +105,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
-        if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
-        else:
-            secret = st.session_state.secret
-
-        outcome, message = check_guess(guess_int, secret)
+        outcome, message = check_guess(guess_int, st.session_state.secret)
 
         if show_hint:
             st.warning(message)
